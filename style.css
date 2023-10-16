@@ -1,0 +1,154 @@
+/*começa zerando seu , pq por padrão ja exite uma margem um pedding definido*/
+*{
+    margin: 0;  /**/
+    padding: 0; /**/
+    block-size: border-box; /* colocado para manter a margen do coteiner caso presise de prenchimento*/
+}
+:root{
+    ---text-color:white;
+    ---bg-url:url(./assets/bg-mobile.jpg);
+    ---stroke-color:1px solid rgba(255, 255, 255, 0.5);
+    ---surfeice-color: rgba(255, 255, 255, 0.1);
+    ---surfeice-color-hover:rgba(255, 255, 255, 0.05 );
+    ---highlight-color: rgba(255, 255, 255, 0.2);
+    ---switch-bg-url:url(/assets/moon-stars.svg);
+}
+.light{
+    ---text-color:black; 
+    ---bg-url:url(./assets/bg-mobile-light.jpg);
+    ---stroke-color:rgba(0, 0, 0, 0.5);
+    ---surfeice-color: rgba(0, 0, 0, 0.05);
+    ---surfeice-color-hover:rgba(0, 0, 0, 0.02);
+    ---highlight-color:rgba(0, 0, 0, 0.1);
+    ---switch-bg-url: url(/assets/sun.svg);
+}
+/**/
+body{
+    background-image: var(---bg-url);
+    background-repeat: no-repeat;/* não se repitir a imagem*/
+    background-position: top center;/* não cetralizar pelo meio da imagem e sim pelo  topo*/
+    background-size:cover ; /* prenche todo se for para o celular*/
+    /**/
+}
+body * {
+    font-family: 'Inter', sans-serif ;/* fonte da letra*/
+    color:var(---text-color)/* cor da ketra*/
+}/* coteudo*/
+#coteiner{
+    /* border: 1px solid rgb(251, 0, 255);  */
+    /*apenas para se localizar onde esta o conteudo**/
+    width: 100%;
+    max-width: 588px;
+    margin: 56px auto 0px;
+   padding: 0 24px;
+   margin-top: 0px;
+    
+}/*seu avatar*/
+#profile {
+    text-align: center;/*centraliza coisas que são por padrão iline, como as Img, que é o caso*/
+    padding: 24px ;/* prenchimeto*/
+    
+}
+#profile img{
+    width: 112px;
+    /* border: 1px solid red */
+}
+
+#profile p{
+    font-weight: 500; /*seria o nivel do negrito*/
+    line-height: 24px;/* altura da linha*/
+   margin:8px ;
+   /* border: 1px solid rgb(17, 255, 0) */
+}
+#switch{
+    /* border: 1px solid rgb(300, 255, 0); */
+    position: relative;
+    width: 64px;
+    margin: 4px auto;
+}
+
+
+ #switch button{
+    width: 32px;
+    height: 32px;
+    background: white var(---switch-bg-url) no-repeat center;
+    border: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 1;
+    transform: translateY(-50%);
+ }
+ .light #switch button{
+    right: 0;
+    left: initial;
+ }
+
+ #switch span{
+    display: block;
+    width: 64px;
+    height: 24px;
+    background: var(---surfeice-color);
+    border: 1px var(---stroke-color);
+    backdrop-filter: blur(4px);
+   -webkit-backdrop-filter: blur(4px);
+    border-radius: 9999px;
+
+}
+ul {
+    list-style: none;/* tira o ponto das lista*/
+    display: flex;/* separa os coteudo das linhas */
+    flex-direction: column; /*colaca o coteudo em culuna e não um ao lado do outro*/
+    gap: 16px; /*epaçao entre os conteudos*/  
+    padding:  24px 0;   
+}
+ul li a{
+    
+    display: flex;
+    align-items: center;
+    justify-content:center; /* centralizar o conteudo*/
+    padding: 16px 24px;/*preenchimento do conteudo,por isso não presisa de autura nem largura */
+    border:var(---stroke-color);/*branco transparente o.5*/
+    background:var(---surfeice-color);/*brnco transparente 0.1*/
+    border-radius: 8px;/* aredodar */
+    backdrop-filter:blur(4px);/*tranparencia*/
+    -webkit-backdrop-filter:blur(4px) ;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.5s;
+}
+ul li a:hover{
+    background: var(---surfeice-color-hover);
+    border: 1.5px solid var(---text-color);
+}
+#social-links{
+    display: flex;/* separa os coteudo das linhas */
+     font-size: 24px;
+     padding:  24px 0;  
+    justify-content:center;
+    /*gap: 16px; /*epaçao entre os conteudos*/
+    
+   /* apena deichar uma bolinha  */
+
+    
+    }
+    #social-links a{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        transition: background 0,2s;
+        border-radius: 50%;
+    }
+    
+    #social-links a:hover{
+        background: var(---highlight-color);
+        padding: 16px;
+
+    }
+    footer{
+        padding: 24px 0;
+        text-align: center;
+        font-size:14px ;
+    }
