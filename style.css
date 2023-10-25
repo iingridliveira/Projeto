@@ -4,6 +4,7 @@
     padding: 0; /**/
     block-size: border-box; /* colocado para manter a margen do coteiner caso presise de prenchimento*/
 }
+
 :root{
     ---text-color:white;
     ---bg-url:url(./assets/bg-mobile.jpg);
@@ -13,6 +14,7 @@
     ---highlight-color: rgba(255, 255, 255, 0.2);
     ---switch-bg-url:url(/assets/moon-stars.svg);
 }
+
 .light{
     ---text-color:black; 
     ---bg-url:url(./assets/bg-mobile-light.jpg);
@@ -20,21 +22,17 @@
     ---surfeice-color: rgba(0, 0, 0, 0.05);
     ---surfeice-color-hover:rgba(0, 0, 0, 0.02);
     ---highlight-color:rgba(0, 0, 0, 0.1);
-    ---switch-bg-url: url(/assets/sun.svg);
+    ---switch-bg-url: url(./assets/sun.svg);
 }
 /**/
 body{
-    background-image: var(---bg-url);
-    background-repeat: no-repeat;/* não se repitir a imagem*/
-    background-position: top center;/* não cetralizar pelo meio da imagem e sim pelo  topo*/
-    background-size:cover ; /* prenche todo se for para o celular*/
-    /**/
-}
+    background: var(---bg-url) no-repeat top center/cover;
+    height: 100vh;}
 body * {
     font-family: 'Inter', sans-serif ;/* fonte da letra*/
     color:var(---text-color)/* cor da ketra*/
 }/* coteudo*/
-#coteiner{
+#container {
     /* border: 1px solid rgb(251, 0, 255);  */
     /*apenas para se localizar onde esta o conteudo**/
     width: 100%;
@@ -50,6 +48,8 @@ body * {
     
 }
 #profile img{
+    overflow-clip-margin: content-box;
+    overflow: clip;
     width: 112px;
     /* border: 1px solid red */
 }
@@ -75,13 +75,14 @@ body * {
     border: 0;
     border-radius: 50%;
     position: absolute;
+    left: 0;
     top: 50%;
-    animation: slide-back 0.2s forwards;
     z-index: 1;
     transform: translateY(-50%);
+    animation: slide-back 0.2s;
  }
  .light #switch button{
-   animation: slide-in 0.4s forwards;
+   animation: slide-in 0.2s forwards;
    
  } 
  #switch button:hover{
@@ -114,12 +115,13 @@ ul li a{
     padding: 16px 24px;/*preenchimento do conteudo,por isso não presisa de autura nem largura */
     border:var(---stroke-color);/*branco transparente o.5*/
     background:var(---surfeice-color);/*brnco transparente 0.1*/
+    border:var(---stroke-color);
     border-radius: 8px;/* aredodar */
     backdrop-filter:blur(4px);/*tranparencia*/
     -webkit-backdrop-filter:blur(4px) ;
     text-decoration: none;
     font-weight: 500;
-    transition: background 0.5s;
+    transition: background 0.2s;
 }
 ul li a:hover{
     background: var(---surfeice-color-hover);
@@ -127,9 +129,10 @@ ul li a:hover{
 }
 #social-links{
     display: flex;/* separa os coteudo das linhas */
-     font-size: 24px;
-     padding:  24px 0;  
     justify-content:center;
+    padding:  24px 0;  
+    font-size: 24px;
+    
     /*gap: 16px; /*epaçao entre os conteudos*/
     
    /* apena deichar uma bolinha  */
@@ -147,7 +150,6 @@ ul li a:hover{
     
     #social-links a:hover{
         background: var(---highlight-color);
-        padding: 16px;
 
     }
     footer{
@@ -157,10 +159,10 @@ ul li a:hover{
     }
 @media (min-width:700px){
     :root{
-        ---bg-url:url(./assets/bg-desktop.jpg);
+        ---bg-url: url(./assets/bg-desktop.jpg);
     }
     .light{
-        ---bg-url:url(./assets/bg-desktop-light.jpg);
+        ---bg-url: url(./assets/bg-desktop-light.jpg);
     }
     
 }
