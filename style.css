@@ -2,35 +2,35 @@
 *{
     margin: 0;  /**/
     padding: 0; /**/
-    block-size: border-box; /* colocado para manter a margen do coteiner caso presise de prenchimento*/
+    box-sizing: border-box; /* colocado para manter a margen do coteiner caso presise de prenchimento*/
 }
 
 :root{
-    ---text-color:white;
-    ---bg-url:url(./assets/bg-mobile.jpg);
-    ---stroke-color:1px solid rgba(255, 255, 255, 0.5);
-    ---surfeice-color: rgba(255, 255, 255, 0.1);
-    ---surfeice-color-hover:rgba(255, 255, 255, 0.05 );
-    ---highlight-color: rgba(255, 255, 255, 0.2);
-    ---switch-bg-url:url(/assets/moon-stars.svg);
+    --text-color:white;
+    --bg-url:url(./assets/bg-mobile.jpg);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.05);
+    --surface-color-hover:rgba(0,0,0, 0.02 );
+    --highlight-color: rgba(255, 255, 255, 0.2);
+    --switch-bg-url:url(./assets/moon-stars.svg);
 }
 
 .light{
-    ---text-color:black; 
-    ---bg-url:url(./assets/bg-mobile-light.jpg);
-    ---stroke-color:rgba(0, 0, 0, 0.5);
-    ---surfeice-color: rgba(0, 0, 0, 0.05);
-    ---surfeice-color-hover:rgba(0, 0, 0, 0.02);
-    ---highlight-color:rgba(0, 0, 0, 0.1);
-    ---switch-bg-url: url(./assets/sun.svg);
+    --text-color:black; 
+    --bg-url:url(./assets/bg-mobile-light.jpg);
+    --stroke-color:rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
+    --surface-color-hover:rgba(0, 0, 0, 0.02);
+    --highlight-color:rgba(0, 0, 0, 0.1);
+    --switch-bg-url: url(./assets/sun.svg);
 }
 /**/
 body{
-    background: var(---bg-url) no-repeat top center/cover;
+    background: var(--bg-url) no-repeat top center/cover;
     height: 100vh;}
 body * {
     font-family: 'Inter', sans-serif ;/* fonte da letra*/
-    color:var(---text-color)/* cor da ketra*/
+    color:var(--text-color)/* cor da ketra*/
 }/* coteudo*/
 #container {
     /* border: 1px solid rgb(251, 0, 255);  */
@@ -48,8 +48,6 @@ body * {
     
 }
 #profile img{
-    overflow-clip-margin: content-box;
-    overflow: clip;
     width: 112px;
     /* border: 1px solid red */
 }
@@ -57,7 +55,7 @@ body * {
 #profile p{
     font-weight: 500; /*seria o nivel do negrito*/
     line-height: 24px;/* altura da linha*/
-   margin:8px ;
+    margin-top:8px ;
    /* border: 1px solid rgb(17, 255, 0) */
 }
 #switch{
@@ -71,12 +69,12 @@ body * {
  #switch button{
     width: 32px;
     height: 32px;
-    background: white var(---switch-bg-url) no-repeat center;
+    background: white var(--switch-bg-url) no-repeat center;
     border: 0;
     border-radius: 50%;
-    position: absolute;
-    left: 0;
+    position: absolute; 
     top: 50%;
+    left: 0;
     z-index: 1;
     transform: translateY(-50%);
     animation: slide-back 0.2s;
@@ -86,15 +84,15 @@ body * {
    
  } 
  #switch button:hover{
-    outline: 8px solid var(---highlight-color);
+    outline: 8px solid var(--highlight-color);
  }
 
  #switch span{
     display: block;
     width: 64px;
     height: 24px;
-    background: var(---surfeice-color);
-    border: 1px var(---stroke-color);
+    background: var(--surface-color);
+    border: 1px solid var(--stroke-color);
     backdrop-filter: blur(4px);
    -webkit-backdrop-filter: blur(4px);
     border-radius: 9999px;
@@ -113,9 +111,8 @@ ul li a{
     align-items: center;
     justify-content:center; /* centralizar o conteudo*/
     padding: 16px 24px;/*preenchimento do conteudo,por isso não presisa de autura nem largura */
-    border:var(---stroke-color);/*branco transparente o.5*/
-    background:var(---surfeice-color);/*brnco transparente 0.1*/
-    border:var(---stroke-color);
+    background:var(--surface-color);/*brnco transparente 0.1*/
+    border:1px solid var(--stroke-color);/*branco transparente o.5*/
     border-radius: 8px;/* aredodar */
     backdrop-filter:blur(4px);/*tranparencia*/
     -webkit-backdrop-filter:blur(4px) ;
@@ -124,8 +121,8 @@ ul li a{
     transition: background 0.2s;
 }
 ul li a:hover{
-    background: var(---surfeice-color-hover);
-    border: 1.5px solid var(---text-color);
+    background: var(--surface-color-hover);
+    border: 1.5px solid var(--text-color);
 }
 #social-links{
     display: flex;/* separa os coteudo das linhas */
@@ -149,7 +146,7 @@ ul li a:hover{
     }
     
     #social-links a:hover{
-        background: var(---highlight-color);
+        background: var(--highlight-color);
 
     }
     footer{
@@ -159,10 +156,10 @@ ul li a:hover{
     }
 @media (min-width:700px){
     :root{
-        ---bg-url: url(./assets/bg-desktop.jpg);
+        --bg-url: url(./assets/bg-desktop.jpg);
     }
     .light{
-        ---bg-url: url(./assets/bg-desktop-light.jpg);
+        --bg-url: url(./assets/bg-desktop-light.jpg);
     }
     
 }
